@@ -1,0 +1,24 @@
+{
+  "build": {
+    "release": {
+      "autoIncrement": true,
+      "credentialsSource": "local",
+      "channel": "release"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk",
+        "credentialsSource": "local"
+      },
+      "channel": "preview"
+    },
+    "ios-simulator": {
+      "ios": {
+        "simulator": true
+      }
+    }
+  },
+  "cli": {
+    "appVersionSource": "local"
+  }
+}
