@@ -5,8 +5,8 @@ import { APP_COLORS, APP_SIZES } from '../../lib/constants';
 
 const LoadingScreen = () => (
   <View style={styles.container}>
-    {/* <Image source={{ uri: APP_ASSETS.logo }} style={styles.logo} resizeMode="contain" /> */}
-    <Text style={styles.text}>Loading...</Text>
+    <Image source={require('../../../assets/logo.png')} style={styles.logo} />
+    <Text style={styles.text}>Loading</Text>
     <ActivityIndicator size="large" color={APP_COLORS.accent1} style={styles.spinner} />
   </View>
 );
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: APP_SIZES.fsLg,
-    color: APP_COLORS.darkGrey,
+    color: '#000000',
     marginBottom: 12,
     fontWeight: '500',
   },

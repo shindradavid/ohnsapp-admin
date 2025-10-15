@@ -7,11 +7,9 @@ import { DrawerActions } from '@react-navigation/native';
 
 import AuthContext from '../context/AuthContext';
 import { APP_COLORS, APP_SIZES } from '../lib/constants';
-import { hasRoles } from '../lib/utils';
-import { StaffRole } from '../lib/enums';
 
 export default function CustomDrawerContent(props: any) {
-  const { user } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext);
 
   const currentRoute = props.state.routeNames[props.state.index];
 
@@ -24,7 +22,11 @@ export default function CustomDrawerContent(props: any) {
         focused={focused}
         onPress={() => props.navigation.dispatch(DrawerActions.jumpTo(routeName))}
         icon={() => (
-          <IconComponent name={iconName} size={24} color={focused ? APP_COLORS.txtPrimaryOnBgAccent1 : APP_COLORS.txtPrimaryOnBgPrimary} />
+          <IconComponent
+            name={iconName}
+            size={24}
+            color={focused ? APP_COLORS.txtPrimaryOnBgAccent1 : APP_COLORS.txtPrimaryOnBgPrimary}
+          />
         )}
         labelStyle={[styles.label, focused && { color: APP_COLORS.txtPrimaryOnBgAccent1 }]}
         style={[
@@ -46,12 +48,12 @@ export default function CustomDrawerContent(props: any) {
             flexDirection: 'column',
           }}
         >
-          {user && (
+          {authUser && (
             <View style={styles.profileInfoContainer}>
-              <Image source={{ uri: user.photoUrl }} style={styles.profileImage} />
+              <Image source={{ uri: authUser.photoUrl }} style={styles.profileImage} />
               <View>
-                <Text style={styles.profileName}>{user.name}</Text>
-                <Text style={styles.profileEmail}>{user.phoneNumber}</Text>
+                <Text style={styles.profileName}>{authUser.name}</Text>
+                <Text style={styles.profileEmail}>{authUser.phoneNumber}</Text>
               </View>
             </View>
           )}
@@ -59,20 +61,7 @@ export default function CustomDrawerContent(props: any) {
 
         <View style={styles.navSection}>
           {renderDrawerItem('Home', 'Home', Ionicons, 'home')}
-          {renderDrawerItem('Stock management', 'StockManagement', MaterialIcons, 'inventory')}
-          {renderDrawerItem('Expenses', 'Expenses', Foundation, 'graph-pie')}
-          {renderDrawerItem('Customers', 'Customers', FontAwesome, 'users')}
-          {renderDrawerItem('Suppliers', 'Suppliers', FontAwesome6, 'users-rectangle')}
-          {renderDrawerItem('End of day report', 'EndOfDayReport', Foundation, 'graph-bar')}
-          {renderDrawerItem('Reports', 'Reports', Foundation, 'graph-pie')}
-
-          {hasRoles(user, [StaffRole.ADMIN, StaffRole.MANAGER]) && (
-            <>
-              {renderDrawerItem('Sale payments', 'SalePayments', FontAwesome6, 'money-bill')}
-              {renderDrawerItem('Staff', 'Staff', FontAwesome6, 'users-gear')}
-              {renderDrawerItem('Audit logs', 'AuditLogs', Entypo, 'text-document-inverted')}
-            </>
-          )}
+          {renderDrawerItem('Airports', 'Airports', FontAwesome, 'plane')}
         </View>
       </ScrollView>
     </DrawerContentScrollView>

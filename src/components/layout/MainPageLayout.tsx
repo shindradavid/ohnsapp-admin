@@ -17,7 +17,7 @@ const MainPageLayout: React.FC<MainPageLayout> = ({ title = 'Main Page', childre
   const appVersion = Constants.expoConfig?.version || 'Unknown';
 
   return (
-    <View style={{ flex: 1, backgroundColor: APP_COLORS.accent2 }}>
+    <View style={{ flex: 1, backgroundColor: APP_COLORS.accent1 }}>
       <StatusBar translucent style="light" />
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
@@ -28,7 +28,7 @@ const MainPageLayout: React.FC<MainPageLayout> = ({ title = 'Main Page', childre
                 <Text
                   style={{
                     color: '#fff',
-                    fontSize: APP_SIZES.fsLg,
+                    fontSize: APP_SIZES.fsMd,
                     fontWeight: '700',
                     textAlign: 'center',
                     marginRight: 12,
@@ -67,14 +67,14 @@ const MainPageLayout: React.FC<MainPageLayout> = ({ title = 'Main Page', childre
 
 const styles = StyleSheet.create({
   statusBarBackground: {
-    backgroundColor: APP_COLORS.bgAccent2,
+    backgroundColor: APP_COLORS.bgAccent1,
   },
   container: {
     flex: 1,
   },
   appBarWrapper: {
-    backgroundColor: APP_COLORS.bgAccent2,
-    color: APP_COLORS.txtPrimaryOnBgAccent2,
+    backgroundColor: APP_COLORS.bgAccent1,
+    color: APP_COLORS.txtPrimaryOnBgAccent1,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     paddingBottom: 10,

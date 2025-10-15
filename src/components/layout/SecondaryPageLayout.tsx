@@ -38,10 +38,10 @@ const SecondaryPageLayout: React.FC<SecondaryPageLayout> = ({ title = 'Main Page
 
 const styles = StyleSheet.create({
   statusBarBackground: {
-    backgroundColor: APP_COLORS.bgAccent2,
+    backgroundColor: APP_COLORS.bgAccent1,
   },
   appBarWrapper: {
-    backgroundColor: APP_COLORS.bgAccent2,
+    backgroundColor: APP_COLORS.bgAccent1,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     paddingBottom: 10,

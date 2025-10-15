@@ -194,8 +194,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   content: {
-    paddingTop: 16,
-    paddingBottom: 8,
+    padding: APP_SIZES.pagePadding,
   },
   footer: {
     marginTop: 12,

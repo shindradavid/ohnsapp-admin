@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { ApiResponse, ImageFile, MutationArgs } from '../lib/types';
-import apiClient from '../lib/apiClient';
+import { ApiResponse, ImageFile } from '../lib/types';
 import { base64ToBlob, isWeb } from '../lib/utils';
+import apiClient from '../lib/apiClient';
 
 export interface Employee {
   id: string;
@@ -14,7 +14,7 @@ export interface Employee {
   createdAt: string;
 }
 
-export const employeesQueryKey = 'staffMembersQueryKey';
+export const employeesQueryKey = 'employeesQueryKey';
 
 export const useEmployee = () => {
   return useQuery({
@@ -35,7 +35,7 @@ interface CreateEmployeeMutationData {
   photo: ImageFile;
 }
 
-export const useCreateEmployeeMutation = ({ onError, onSuccess }: MutationArgs) => {
+export const useCreateEmployeeMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -73,13 +73,6 @@ export const useCreateEmployeeMutation = ({ onError, onSuccess }: MutationArgs) 
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [employeesQueryKey] });
-    },
-    onError: (error) => {
-      console.log(error);
-      onError(error.message);
-    },
-    onSuccess: (data) => {
-      onSuccess(data.message);
     },
   });
 };

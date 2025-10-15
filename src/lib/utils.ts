@@ -5,21 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 import * as Contacts from 'expo-contacts';
 import { format } from 'date-fns';
 
-import { Contact, ImageFile, User } from './types';
-import { UnitOfMeasurement, StaffRole } from './enums';
-
-export const ProductUnitLabels: Record<UnitOfMeasurement, { singular: string; plural: string }> = {
-  [UnitOfMeasurement.KG]: { singular: 'kg', plural: 'kgs' },
-  [UnitOfMeasurement.G]: { singular: 'g', plural: 'g' },
-  [UnitOfMeasurement.LITRE]: { singular: 'litre', plural: 'litres' },
-  [UnitOfMeasurement.ML]: { singular: 'ml', plural: 'ml' },
-  [UnitOfMeasurement.BAG]: { singular: 'bag', plural: 'bags' },
-  [UnitOfMeasurement.SACHET]: { singular: 'sachet', plural: 'sachets' },
-  [UnitOfMeasurement.BOTTLE]: { singular: 'bottle', plural: 'bottles' },
-  [UnitOfMeasurement.PACKET]: { singular: 'packet', plural: 'packets' },
-  [UnitOfMeasurement.TIN]: { singular: 'tin', plural: 'tins' },
-  [UnitOfMeasurement.UNIT]: { singular: 'unit', plural: 'units' },
-};
+import { ImageFile } from './types';
 
 export const handleOpenWhatsApp = (phoneNumber: string) => {
   let phone = phoneNumber.replace(/\D/g, ''); // Remove non-digit characters
@@ -186,7 +172,7 @@ export const base64ToBlob = (base64Data: string, contentType: string): Blob => {
   return new Blob(byteArrays, { type: contentType });
 };
 
-export const selectContact = async (): Promise<Contact | null> => {
+export const selectContact = async (): Promise<any | null> => {
   const { status } = await Contacts.requestPermissionsAsync();
 
   if (status !== 'granted') return null;
@@ -208,15 +194,3 @@ export const selectContact = async (): Promise<Contact | null> => {
     phoneNumber: phoneNumber.number,
   };
 };
-
-/**
- * Check if a user has at least one of the specified roles.
- * @param user - The user object to check.
- * @param rolesToCheck - One or more roles to check against.
- * @returns true if the user has any of the roles, false otherwise.
- */
-export function hasRoles(user: User | null, rolesToCheck: StaffRole[]): boolean {
-  if (!user) return false;
-
-  return user.roles.some((role) => rolesToCheck.includes(role));
-}

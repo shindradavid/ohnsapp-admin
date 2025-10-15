@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground, ToastAndroid } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, ToastAndroid, ScrollView } from 'react-native';
 import { z, ZodError } from 'zod';
 
 import { CustomButton, CustomPasswordInput, CustomTextInput } from '../../components/common';
@@ -70,9 +70,9 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <ImageBackground
-        source={require('../../../assets/images/login-bg.jpg')}
+        source={require('../../../assets/images/login-bg.png')}
         imageStyle={styles.curvedImageStyles}
         style={styles.topSectionBackground}
       >
@@ -92,7 +92,7 @@ const LoginScreen = () => {
           <CustomButton title="Login" onPress={handleLogin} disabled={loading} loading={loading} variant="secondary" />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

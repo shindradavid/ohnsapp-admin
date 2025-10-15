@@ -6,6 +6,7 @@ import { APP_COLORS, APP_SIZES } from '../lib/constants';
 import AuthContext from '../context/AuthContext';
 import CustomDrawerContent from '../components/CustomDrawer';
 import HomeScreen from '../screens/HomeScreen';
+import AirportsScreen from '../screens/AirportsScreen';
 
 const drawerWidth = Dimensions.get('window').width * 0.7;
 
@@ -46,6 +47,7 @@ function AppDrawerNavigator() {
       }}
     >
       <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Airports" component={AirportsScreen} />
     </Drawer.Navigator>
   );
 }

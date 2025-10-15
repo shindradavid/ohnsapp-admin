@@ -1,19 +1,19 @@
-export const API_BASE_URL = 'https://api.ohnsapp.iconiksoftware.com';
-// export const API_BASE_URL = 'http://192.168.100.254:4022';
+// export const API_BASE_URL = 'https://api.ohnstransportation.com';
+export const API_BASE_URL = 'http://192.168.1.124:8004';
 
 export const SESSION_ID_KEY = 'sessionId';
 
 export const APP_COLORS = {
   // Accent (Primary Brand Colors)
-  accent1: '#6E081F',
-  accent2: '#1B1A1CFF',
+  accent1: '#003E81',
+  accent2: '#1F7D60',
 
   // Accent Backgrounds
-  bgAccent1: '#6E081F',
+  bgAccent1: '#003E81',
   txtPrimaryOnBgAccent1: '#ffffff',
   txtSecondaryOnBgAccent1: '#ffe6ec',
 
-  bgAccent2: '#1B1A1CFF',
+  bgAccent2: '#1F7D60',
   txtPrimaryOnBgAccent2: '#ffffff',
   txtSecondaryOnBgAccent2: '#a1aab8',
 
