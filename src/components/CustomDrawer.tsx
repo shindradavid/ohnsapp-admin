@@ -62,6 +62,7 @@ export default function CustomDrawerContent(props: any) {
         <View style={styles.navSection}>
           {renderDrawerItem('Home', 'Home', Ionicons, 'home')}
           {renderDrawerItem('Airports', 'Airports', FontAwesome, 'plane')}
+          {renderDrawerItem('Ride options', 'AirportPickupRideOptions', FontAwesome, 'plane')}
         </View>
       </ScrollView>
     </DrawerContentScrollView>

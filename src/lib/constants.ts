@@ -1,5 +1,5 @@
-// export const API_BASE_URL = 'https://api.ohnstransportation.com';
-export const API_BASE_URL = 'http://192.168.1.124:8004';
+export const API_BASE_URL = 'https://api.ohnstransportation.com';
+// export const API_BASE_URL = 'http://192.168.1.124:8004';
 
 export const SESSION_ID_KEY = 'sessionId';
 
